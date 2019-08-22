@@ -1,14 +1,12 @@
 import React from 'react';
 import { asset, Environment, Text, View, VrButton } from 'react-360';
 import { connect } from 'react-redux';
-import styles from './../styles';
 import AudioPanel from './audioPanel';
 import { pickRoom } from '../actions';
+import styles from './../styles';
 
 const mapStateToProps = state => {
   return {
-    name: state.name,
-    info: state.info,
     adjacentRooms: state.adjacentRooms
   }
 }
@@ -28,16 +26,21 @@ class Button extends React.Component {
     Environment.setBackgroundImage(asset(`images/${img}.jpg`))
   }
 
+  formatString(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).split('_').join(' ')
+  }
+
   render() {
+    const { onChooseRoom, selection } = this.props;
     return(
-        <View>
-          <VrButton style={this.state.hover ? styles.hover : styles.button}
-                    onEnter={() => this.setState({hover: true})}
-                    onExit={() => this.setState({hover: false})}
-                    onClick={() => {this.props.onChooseRoom(this.props.selection); this.changeEnvironment(this.props.selection)}}>
-                    <Text style={{textAlign: 'center'}}>{this.props.selection}</Text>
-          </VrButton>
-        </View>
+      <View>
+        <VrButton style={this.state.hover ? styles.hover : styles.button}
+                  onEnter={() => this.setState({hover: true})}
+                  onExit={() => this.setState({hover: false})}
+                  onClick={() => {onChooseRoom(selection); this.changeEnvironment(selection)}}>
+                  <Text style={styles.buttonText}>{this.formatString(selection)}</Text>
+        </VrButton>
+      </View>
     );
   }
 }
@@ -56,14 +59,15 @@ class Selections extends React.Component {
   }
 
   render() {
+    const { adjacentRooms } = this.props;
     return(
       <View>
         <View style={styles.buttonPanel}>
           <View>
-            <Text style={styles.header}>Room Selection</Text>
+            <Text style={styles.panelHeader}>Room Selection</Text>
           </View>
           <View>
-            { this.createRoomButtons(this.props.adjacentRooms) }
+            { this.createRoomButtons(adjacentRooms) }
           </View>
           <AudioPanel />
         </View>

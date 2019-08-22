@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppRegistry } from 'react-360';
-import { applyMiddleware, createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { roomReducer } from './reducers';
@@ -19,7 +19,7 @@ class HousePanel extends React.Component {
   }
 };
 
-export default class SelectionPanel extends React.Component {
+class SelectionPanel extends React.Component {
   render() {
     return (
       <Provider store={store}>
@@ -29,5 +29,5 @@ export default class SelectionPanel extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('SelectionPanel', () => SelectionPanel);
 AppRegistry.registerComponent('HousePanel', () => HousePanel);
+AppRegistry.registerComponent('SelectionPanel', () => SelectionPanel);

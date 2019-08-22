@@ -29,27 +29,30 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center'
   },
-  audioButton: {
-    width: 50,
-    height: 50,
-    backgroundColor: 'rgb(0,204,102)',
-    borderColor: 'rgb(255,255,255)',
-    borderWidth: 2,
-  },
-  button: {
-    width: 200,
-    backgroundColor: 'rgb(0,0,0)',
-    borderColor: 'rgb(255,255,255)',
-    borderWidth: 5,
-  },
   hover: {
+    height: 60,
     width: 200,
     backgroundColor: '#0073B7',
     borderColor: 'rgb(255,255,255)',
     borderWidth: 5
   },
-  header: {
+  button: {
+    height: 60,
+    width: 200,
+    backgroundColor: 'rgb(0,0,0)',
+    borderColor: 'rgb(255,255,255)',
+    borderWidth: 5,
+  },
+  buttonText: {
+    fontSize: 30,
+    textAlign: 'center',
+  },
+  panelHeader: {
     fontSize: 40,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  infoText: {
     fontWeight: 'bold',
     textAlign: 'center'
   }

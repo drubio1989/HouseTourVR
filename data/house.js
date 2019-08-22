@@ -5,7 +5,7 @@ export default data = {
       * Open space living room
       * Easy access to all other rooms.
       * Big screen T.V. wall  mount`,
-    adjacentRooms: ['private_room', 'play_room', 'private_room', 'bathroom']
+    adjacentRooms: ['private_room', 'play_room', 'bathroom']
   },
   play_room: {
     name: 'Play Room',
@@ -18,7 +18,7 @@ export default data = {
     adjacentRooms: ['bathroom']
   },
   private_room: {
-    name: 'Master Room',
+    name: 'Private Room',
     info: `
     * Queen size bed.
     * Over looks surrounding acres.

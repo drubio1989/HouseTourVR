@@ -8,29 +8,31 @@ const mapStateToProps = state => {
   return {
     name: state.name,
     info: state.info,
-    adjacentRooms: state.adjacentRooms
-  }
-}
-
-const mapDisptachToProps = (dispatch, event) => {
-  return {
-    onChooseRoom: (event) =>  dispatch(pickRoom(event))
   }
 }
 
 class Information extends React.Component {
+
+  formatString(name) {
+    return name.split('_').join(' ')
+  }
+
   render() {
+    const { name, info } = this.props;
+
     return(
       <View>
         <View style={styles.infoPanel}>
-          <Text style={styles.header}>{this.props.name.split('_').join(' ')}</Text>
-          <Text style={{fontSize: 20, textAlign: 'center', fontWeight: 'bold'}}>
-            {this.props.info}
-          </Text>
+          <Text style={styles.panelHeader}>{this.formatString(name)}</Text>
+          <View >
+            <Text style={styles.infoText}>
+              {info}
+            </Text>
+          </View>
         </View>
       </View>
     )
   }
 }
 
-export default ConnectedInformation = connect(mapStateToProps, mapDisptachToProps)(Information);
+export default ConnectedInformation = connect(mapStateToProps)(Information);

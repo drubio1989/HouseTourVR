@@ -12,12 +12,12 @@ function init(bundle, parent, options = {}) {
 
   const buttonsPanel = new Surface(
     400,
-    600,
+    400,
     Surface.SurfaceShape.Flat
   );
 
   buttonsPanel.setAngle(
-    -0.6,
+    -0.5,
     0
   );
 
@@ -28,8 +28,8 @@ function init(bundle, parent, options = {}) {
   );
 
   infoPanel.setAngle(
-    0.6,
-    0.1
+    0.5,
+    0
   );
 
   r360.renderToSurface(
